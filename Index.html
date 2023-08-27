@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Collaboration Hub</title>
+  <style>
+          /* Reset some default styles */
+body, h1, h2, p, ul, li, input, button, a {
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  color: black;
+}
+
+/* Style the header */
+header {
+  background-color: darkblue;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the main content */
+main {
+  padding: 20px;
+}
+
+/* Style the problem discussion section */
+.problem-discussion, .file-sharing, .email-communication {
+  margin-bottom: 30px;
+}
+
+/* Style the discussion container */
+.discussion-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Style the file sharing section */
+.file-sharing input[type="file"] {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Style the footer */
+footer {
+  background-color: deepskyblue;
+  padding: 10px;
+  text-align: center;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Student Collaboration Hub</h1>
+  </header>
+  
+  <main>
+    <section class="problem-discussion">
+      <h2>Problem Discussion</h2>
+      <div class="discussion-container" id="discussionContainer">
+        <!-- Discussion messages will be added here -->
+      </div>
+      <input type="text" id="messageInput" placeholder="Enter your message">
+      <button onclick="sendMessage()">Send</button>
+    </section>
+    
+    <section class="file-sharing">
+      <h2>File Sharing</h2>
+      <input type="file" id="fileInput">
+      <button onclick="uploadFile()">Upload</button>
+    </section>
+    
+    <section class="email-communication">
+      <h2>Email Communication</h2>
+      <button onclick="sendEmail()">Send Email</button>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 Student Collaboration Hub. All rights reserved.</p>
+  </footer>
+  
+  <script>
+          function sendMessage() {
+  const messageInput = document.getElementById('messageInput');
+  const discussionContainer = document.getElementById('discussionContainer');
+  const message = messageInput.value;
+
+  if (message) {
+    const messageElement = document.createElement('div');
+    messageElement.className = 'message';
+    messageElement.textContent = message;
+    discussionContainer.appendChild(messageElement);
+    messageInput.value = '';
+  }
+}
+
+function uploadFile() {
+  const fileInput = document.getElementById('fileInput');
+  const fileName = fileInput.files[0].name;
+
+  if (fileName) {
+    alert(`File "${fileName}" uploaded successfully!`);
+    fileInput.value = '';
+  }
+}
+
+function sendEmail() {
+  window.location.href = 'mailto: creativeknowledgeacademy03@gmail.com';
+}
+  </script>
+</body>
+</html>
